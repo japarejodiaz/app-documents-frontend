@@ -1,0 +1,35 @@
+<div class="layout-container">
+
+  <!-- NAVBAR SUPERIOR -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="logo">ANÁLISIS DOC</div>
+    </div>
+
+    <div class="navbar-right">
+      <span class="navbar-user">{{ userName }}</span>
+      <span class="logout-btn" (click)="logout()">Salir</span>
+    </div>
+  </nav>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="content-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a routerLink="/dashboard" routerLinkActive="active" class="menu-item">Dashboard</a>
+      <a routerLink="/documents" routerLinkActive="active" class="menu-item">Documentos</a>
+      <a routerLink="/analysis" routerLinkActive="active" class="menu-item">Análisis</a>
+      <a routerLink="/documents/upload" routerLinkActive="active" class="menu-item">Subir Documento</a>
+      <a routerLink="/profile" routerLinkActive="active" class="menu-item">Perfil</a>
+    </aside>
+
+    <!-- CONTENIDO DINÁMICO -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>
+
+

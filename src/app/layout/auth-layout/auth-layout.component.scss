@@ -1,0 +1,26 @@
+@use '../../../styles/theme.scss' as *;
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $color-gray-200;
+  padding: 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  padding: $spacing-xl;
+  background: white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-lg;
+}
+
+/* Móvil */
+@media (max-width: 600px) {
+  .auth-card {
+    padding: $spacing-lg;
+  }
+}

@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'styles/theme.scss' as *;
+
+/* Breakpoints Google Material */
+$break-sm: 600px;
+$break-md: 900px;
+$break-lg: 1200px;
+$break-xl: 1536px;
+
+/* Layout responsive global */
+.responsive-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Formularios globales */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-weight: 500;
+}
+
+input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+}

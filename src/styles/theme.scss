@@ -1,0 +1,171 @@
+/* -------------------------------------------------------
+   PALETA GOOGLE (COLORES PRINCIPALES)
+------------------------------------------------------- */
+$color-blue:   #4285F4;
+$color-red:    #DB4437;
+$color-yellow: #F4B400;
+$color-green:  #0F9D58;
+
+/* -------------------------------------------------------
+   GRAYS PROFESIONALES
+------------------------------------------------------- */
+$color-gray-100: #f8f9fa;
+$color-gray-200: #f1f3f4;
+$color-gray-300: #e0e0e0;
+$color-gray-400: #c4c4c4;
+$color-gray-500: #9e9e9e;
+$color-gray-600: #5f6368;
+$color-gray-700: #3c4043;
+$color-gray-800: #202124;
+
+$color-gray-light: $color-gray-100;
+$color-gray-dark:  $color-gray-800;
+
+/* -------------------------------------------------------
+   TIPOGRAFÍA
+------------------------------------------------------- */
+$font-family-base: 'Inter', 'Roboto', sans-serif;
+$font-size-base: 16px;
+
+/* -------------------------------------------------------
+   ESPACIADOS
+------------------------------------------------------- */
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+/* -------------------------------------------------------
+   BORDES Y SOMBRAS
+------------------------------------------------------- */
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+$shadow-sm: 0 1px 2px rgba(0,0,0,0.08);
+$shadow-md: 0 2px 4px rgba(0,0,0,0.12);
+$shadow-lg: 0 4px 12px rgba(0,0,0,0.16);
+
+/* -------------------------------------------------------
+   NAVBAR (GOOGLE STYLE)
+------------------------------------------------------- */
+.navbar {
+  height: 56px;
+  background: white;
+  border-bottom: 1px solid $color-gray-300;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $spacing-lg;
+  box-shadow: $shadow-sm;
+
+  .logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: $color-blue;
+  }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .navbar-user {
+      color: $color-gray-700;
+      font-weight: 500;
+    }
+
+    .logout-btn {
+      color: $color-red;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------
+   SIDEBAR (GOOGLE ADMIN STYLE)
+------------------------------------------------------- */
+.sidebar {
+  width: 240px;
+  background: white;
+  border-right: 1px solid $color-gray-300;
+  padding: $spacing-md 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $shadow-sm;
+
+  .menu-item {
+    padding: $spacing-md $spacing-lg;
+    font-size: 15px;
+    color: $color-gray-700;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $color-gray-200;
+    }
+
+    &.active {
+      background: $color-blue;
+      color: white;
+      font-weight: 600;
+    }
+  }
+}
+
+/* -------------------------------------------------------
+   TARJETAS (CARDS)
+------------------------------------------------------- */
+.card {
+  background: white;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  box-shadow: $shadow-md;
+  border: 1px solid $color-gray-300;
+}
+
+/* -------------------------------------------------------
+   BOTONES
+------------------------------------------------------- */
+.btn {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-sm;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+
+  &.primary {
+    background: $color-blue;
+    color: white;
+  }
+
+  &.danger {
+    background: $color-red;
+    color: white;
+  }
+
+  &.success {
+    background: $color-green;
+    color: white;
+  }
+
+  &.warning {
+    background: $color-yellow;
+    color: white;
+  }
+}
+
+/* -------------------------------------------------------
+   BODY GLOBAL
+------------------------------------------------------- */
+body {
+  font-family: $font-family-base;
+  background: $color-gray-light;
+  margin: 0;
+}

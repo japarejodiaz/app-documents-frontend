@@ -1,0 +1,49 @@
+@use '../../../styles/theme.scss' as *;
+
+/* CONTENEDOR GENERAL */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  @extend .navbar;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  background-color: $color-gray-light;
+}
+
+/* SIDEBAR */
+.sidebar {
+  @extend .sidebar;
+}
+
+/* CONTENIDO */
+.content {
+  flex: 1;
+  padding: $spacing-lg;
+  overflow-y: auto;
+}
+
+/* Sidebar responsive */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    padding: 12px;
+  }
+}
