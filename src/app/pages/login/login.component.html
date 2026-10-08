@@ -40,8 +40,10 @@
   </div>
 
   <!-- BOTÓN -->
-  <button type="submit" [disabled]="form.invalid">
+  <button class="btn primary" type="submit" [disabled]="form.invalid">
     Ingresar
   </button>
+
+  <p class="link" (click)="goToRegister()">¿No tienes cuenta? Regístrate</p>
 
 </form>

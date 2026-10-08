@@ -12,6 +12,7 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
 
   // Siempre enviar cookies
   let modified = req.clone({ withCredentials: true });
+  const isAuthEndpoint = /\/auth\/(login|logout|refresh)(?:\/|$|\?)/.test(modified.url);
 
   // Si hay accessToken → agregar Authorization
   if (token) {
@@ -21,7 +22,7 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   // Si el token está vencido → refrescar antes de enviar
-  if (token && authService.isTokenExpired(token)) {
+  if (token && authService.isTokenExpired(token) && !isAuthEndpoint) {
     return authService.refresh().pipe(
       switchMap((res: any) => {
         const newToken = res.accessToken;
@@ -44,7 +45,7 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
   return next(modified).pipe(
     catchError((error: HttpErrorResponse) => {
       // Si NO es 401 → no es problema de token
-      if (error.status !== 401) {
+      if (error.status !== 401 || isAuthEndpoint) {
         return throwError(() => error);
       }
 

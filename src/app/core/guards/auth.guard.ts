@@ -8,10 +8,9 @@ export const AuthGuard: CanActivateFn = (route, state) => {
 
   const token = authService.getToken();
 
-  // 🟦 1) Si NO hay token → login
+  // 1) Si NO hay token, redirigir a login
   if (!token) {
-    router.navigate(['/login']);
-    return false;
+    return router.createUrlTree(['/login']);
   }
 
   // 🟦 2) Si hay token pero está vencido → logout (el interceptor ya intentará refresh)

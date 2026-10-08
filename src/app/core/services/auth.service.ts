@@ -14,13 +14,17 @@ export class AuthService {
     private router: Router
   ) {}
 
-  logout() {
+  logout(): void {
     localStorage.removeItem('token');
 
-    this.http.post(`${apiUrl}/auth/logout`, {}, { withCredentials: true })
-      .subscribe(() => {});
-
     this.router.navigate(['/login']);
+
+    this.http.post<void>(apiUrl('auth/logout'), {}, { withCredentials: true })
+      .subscribe({
+        error: (error: unknown) => {
+          console.error('No se pudo cerrar la sesión en el servidor.', error);
+        }
+      });
   }
 
   login(data: { email: string; password: string }): Observable<any> {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -12,9 +13,10 @@ export class MainLayoutComponent {
 
   userName = 'Jesús Parejo';
 
+  constructor(private authService: AuthService) {}
+
   logout() {
-    console.log('Logout clicked');
+    this.authService.logout();
   }
 
 }
-

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, UrlTree } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -9,10 +9,9 @@ export class NoAuthGuard {
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  canActivate(): boolean {
+  canActivate(): boolean | UrlTree {
     if (this.auth.isAuthenticated()) {
-      this.router.navigate(['/dashboard']);
-      return false;
+      return this.router.createUrlTree(['/dashboard']);
     }
     return true;
   }
